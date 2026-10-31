@@ -114,6 +114,15 @@ footer{padding:36px 0;color:var(--mute);font-size:.88rem}
 @media(max-width:860px){.proof{grid-template-columns:1fr 1fr}.proof div{border-bottom:1px solid var(--line)}}
 @media(max-width:860px){.hero,.two,.tk{grid-template-columns:1fr}.proj{grid-template-columns:1fr;gap:6px}.steps{grid-template-columns:1fr 1fr}.steps div{border-bottom:1px solid #3a3d44}details dl{grid-template-columns:1fr}section{padding:60px 0}}
 @media(max-width:520px){.steps{grid-template-columns:1fr}}
+.sysm{display:none;flex-direction:column;gap:10px}
+.sysm button{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;font:600 1rem Archivo,sans-serif;min-height:52px;padding:12px 16px;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);cursor:pointer}
+.sysm button small{font:400 .75rem 'IBM Plex Mono',monospace;color:var(--mute)}
+.sysm button.on{border-color:var(--orange);background:var(--orange);color:#fff}
+.sysm button.on small{color:#fff}
+nav{scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+@media(max-width:640px){.sysfig{display:none}.sysm{display:flex}.hgg{grid-template-columns:1fr}.hin input,.calc input{font-size:16px}.hfoot .btn{min-height:44px}summary{padding:15px 0}}
+@media(max-width:520px){body{font-size:17px}.wrap{padding:0 18px}header .wrap{height:52px}nav{gap:16px}.hero{padding:40px 0 48px;gap:32px}.cta .btn{flex:1;text-align:center;min-width:140px}.hg text{font-size:15px}.proof div:nth-child(even){border-right:0}.proof div{padding:14px}.proof b{font-size:1.3rem}.proofsec{padding:24px 0}.sys{padding:44px 0}section{padding:48px 0}.proj{padding:28px 0}.links .btn{flex:1;text-align:center;min-width:130px}.calc label{max-width:none}.steps div{padding:18px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -280,10 +289,12 @@ h+=`<g class="node" id="n${i}" role="button" tabindex="0" aria-pressed="false" a
 h+='<g class="dep"><path class="w" d="M600 45H700V205H600"/></g><text class="m" x="708" y="130">uses</text>';
 svg.innerHTML=h;
 function render(){svg.querySelector(".src").classList.toggle("on",S.size>0);svg.querySelector(".dep").classList.toggle("on",S.has(0));
-P.forEach((p,i)=>{const n=svg.querySelector("#n"+i);n.classList.toggle("on",S.has(i));n.setAttribute("aria-pressed",S.has(i))});
+P.forEach((p,i)=>{const n=svg.querySelector("#n"+i);n.classList.toggle("on",S.has(i));n.setAttribute("aria-pressed",S.has(i));const b=document.getElementById("mb"+i);if(b){b.classList.toggle("on",S.has(i));b.setAttribute("aria-pressed",S.has(i))}});
 const p=P[cur];panel.innerHTML=p?`<h3>${p.n}</h3><p>${p.d}</p><ul>${p.e.filter(x=>x[0]).map(x=>`<li>${x[1]}</li>`).join("")}</ul>`+(p.dp?`<p class="mono" style="margin-top:8px">Depends on: ${p.dp}</p>`:""):'<p class="mono">Close a breaker to see what each project demonstrates.</p>'}
 function tog(i){if(S.has(i)){S.delete(i)}else{S.add(i);if(i===0)S.add(2)}cur=i;render()}
 P.forEach((_,i)=>{const n=svg.querySelector("#n"+i);n.addEventListener("click",()=>tog(i));n.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tog(i)}})});
+svg.parentNode.insertAdjacentHTML("afterend",'<div class="sysm">'+P.map((p,i)=>`<button type="button" id="mb${i}" aria-pressed="false">${p.n}<small>${p.t}</small></button>`).join("")+'</div>');
+P.forEach((_,i)=>document.getElementById("mb"+i).addEventListener("click",()=>tog(i)));
 render();})();
 
 // Live resistive calculation: R = V / I, P = V x I, with a back-check.
