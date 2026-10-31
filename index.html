@@ -147,7 +147,7 @@ footer{padding:36px 0;color:var(--mute);font-size:.88rem}
 </div></section>
 
 <section class="proofsec" aria-label="Verified facts"><div class="wrap">
-<div class="proof"><div><b>210 ECTS</b><span>Seven-semester engineering degree, final grade 4.5, graduated January 2026</span></div><div><b>82.5% IoU</b><span>Reported on the thesis lane segmentation, in simulation</span></div><div><b>90.3% Dice</b><span>Same thesis model, same reported results</span></div><div><b>Founder</b><span>Eletai, an engineering software product in development</span></div></div>
+<div class="proof"><div><b>210 ECTS</b><span>Seven-semester engineering degree, final grade 4.5, graduated January 2026</span></div><div><b>82.5% IoU</b><span>Reported on the thesis lane segmentation, in simulation</span></div><div><b>90.3% Dice</b><span>Same thesis model, same reported results</span></div><div><b>AMI Group</b><span>My company: engineering systems and software products, including Eletai and Anolix</span></div></div>
 <p class="dir">Direction: software where calculations, components and results have explicit relationships, so engineers can trace a finding back to its assumptions. The four projects below show the pieces: C++ computation, desktop architecture, computer vision and a distributed data pipeline.</p>
 </div></section>
 
@@ -157,7 +157,7 @@ footer{padding:36px 0;color:var(--mute);font-size:.88rem}
 
 <article class="proj"><div><p class="mono">Engineering software<br>C++ / Qt 6</p></div><div>
 <h3>Eletai</h3>
-<p>An engineering software project for modelling physical systems, running calculations, investigating faults and building evidence-based findings. Its core idea is an application where calculations, components, dependencies and results have explicit relationships, so a changed input can mark dependent results as stale.</p>
+<p>An engineering diagnostic platform from AMI Engineering that turns field measurements and equipment observations into structured evidence and traceable findings. It is built to help engineers model physical systems, run calculations and investigate faults. Its core idea is an application where calculations, components, dependencies and results have explicit relationships, so a changed input can mark dependent results as stale.</p>
 <div class="tags"><span>C++</span><span>Qt 6</span><span>Windows desktop</span><span>domain-oriented calculation core</span></div>
 <details><summary>Case study</summary><dl>
 <dt>Problem</dt><dd>Engineers often hold the model in one tool, the calculations in another and the reasoning in documents, so it is hard to tell which result depends on which assumption.</dd>
@@ -193,7 +193,7 @@ footer{padding:36px 0;color:var(--mute);font-size:.88rem}
 
 <article class="proj"><div><p class="mono">Data engineering<br>Distributed systems / ML</p></div><div>
 <h3>Anolix</h3>
-<p>A business and operational intelligence project aimed at extracting useful insight from business data. It explores a data-processing architecture built from independent components that work together as one system: event streaming, containerised services, machine learning and orchestrated workflows, rather than a single monolithic application.</p>
+<p>A business intelligence and workflow product from AMI Software, aimed at extracting useful insight from business data. It explores a data-processing architecture built from independent components that work together as one system: event streaming, containerised services, machine learning and orchestrated workflows, rather than a single monolithic application.</p>
 <div class="tags"><span>Docker</span><span>Apache Kafka</span><span>Apache Airflow</span><span>machine learning</span></div>
 <details><summary>Case study</summary><dl>
 <dt>Problem</dt><dd>Business data arrives continuously from several sources, and turning it into operational insight needs more than one script.</dd>
@@ -236,7 +236,7 @@ footer{padding:36px 0;color:var(--mute);font-size:.88rem}
 <section id="about"><div class="wrap two">
 <div><h2>About</h2></div>
 <div><p>I am interested in the point where engineering principles meet practical software. I like understanding how a system behaves, turning the problem into a model, and building tools that help people reason about it.</p>
-<p style="margin-top:16px">My work spans engineering computation, desktop software and computer vision. I care most about software that has to respect real engineering constraints rather than staying abstract.</p></div>
+<p style="margin-top:16px">My work spans engineering computation, desktop software and computer vision. I care most about software that has to respect real engineering constraints rather than staying abstract.</p><p style="margin-top:16px">My company, <a href="https://amigroup.co.zw" target="_blank" rel="noopener">AMI Group</a>, builds engineering systems and software products. Eletai sits in its engineering division and Anolix in its software division.</p></div>
 </div></section>
 
 <section id="contact" class="dark" style="border:0"><div class="wrap">
@@ -249,8 +249,8 @@ footer{padding:36px 0;color:var(--mute);font-size:.88rem}
 
 <script>
 // Personal links live here. Empty values are not rendered.
-const CONFIG={email:"eng.mutare@gmail.com",linkedin:"https://linkedin.com/in/athanas-mutare-a63381224",github:"https://github.com/engmutare",cv:""};
-const items=[["Email me",CONFIG.email&&"mailto:"+CONFIG.email,1],["LinkedIn",CONFIG.linkedin],["GitHub",CONFIG.github],["Download CV",CONFIG.cv]];
+const CONFIG={email:"eng.mutare@gmail.com",linkedin:"https://linkedin.com/in/athanas-mutare-a63381224",github:"https://github.com/engmutare",site:"https://amigroup.co.zw",cv:""};
+const items=[["Email me",CONFIG.email&&"mailto:"+CONFIG.email,1],["LinkedIn",CONFIG.linkedin],["GitHub",CONFIG.github],["AMI Group",CONFIG.site],["Download CV",CONFIG.cv]];
 const box=document.getElementById("links");
 items.forEach(([t,h,p])=>{if(!h)return;const a=document.createElement("a");a.className="btn"+(p?" p":"");a.href=h;a.textContent=t;if(!p){a.target="_blank";a.rel="noopener"}a.style.color=p?"#fff":"inherit";a.style.borderColor=p?"":"#ecebe7";box.appendChild(a)});
 
